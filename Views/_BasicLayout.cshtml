@@ -1,0 +1,74 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<title>@ViewBag.Title</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Bootstrap 101 Template</title>
+
+
+<link href="~/Content/style.css" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="~/Content/bootstrap.min.css" rel="stylesheet">
+<link href="~/Content/bootstrap-select.css" rel="stylesheet">
+<link href="~/Content/bootstrap-checkbox.css" rel="stylesheet">
+<link href="~/Content/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+<link href="~/Content/ladda-themeless.min.css"  rel="stylesheet">
+<link href="~/Content/bootstrap-datepicker3.standalone.min.css"  rel="stylesheet">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<script src="~/Scripts/jquery.bootstrap-touchspin.min.js"></script>
+<script src="~/Scripts/bootstrap-checkbox.js"></script>
+<script src="~/Scripts/holder.js"></script>
+<script src="~/Scripts/jquery.backstretch.min.js"></script>
+<script src="~/Scripts/jquery.marquee.js"></script>
+
+<script src="~/Scripts/jquery.maskedinput.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+<![endif]-->
+</head>
+<body>
+<script>  
+ $.backstretch(["/Images/back1.jpg",
+"/Images/back2.jpg"
+, "/Images/back3.jpg",
+
+
+
+], {duration: 9000, fade: 750}); 
+</script>
+@Html.Partial("NavBar")
+
+<div class="container" >
+<div class="ccc" style="background-color: #ffffff; opacity: 0.9;  filter: alpha(opacity=90); padding-left: 16px; padding-right: 16px; padding-top: 15px; padding-bottom:500px">
+@RenderBody()
+</div>
+</div>
+@Html.Partial("Footer")
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap-select.js"></script>
+<script src="~/Scripts/spin.min.js"></script>
+<script src="~/Scripts/ladda.min.js"></script>
+<script src="~/Scripts/ladda.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.min.js"></script>
+<script src="~/Scripts/locales/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
+<script src="~/Scripts/bootstrap-filestyle.js"></script>
+
+</body>
+</html>

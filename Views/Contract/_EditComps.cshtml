@@ -1,0 +1,53 @@
+﻿@model mvc2.Models.Contract
+
+	@using (Html.BeginForm()) {
+			@Html.ValidationSummary(true)
+			<fieldset>
+				<legend><h2>@ViewBag.Title</h2></legend>
+				
+				<div id="mantra">
+				<div  class="row">
+					<div class="col-md-6">
+						<div class="panel panel-default">
+  							<div class="panel-body">
+				    			<div class="editor-label">
+									@Html.LabelFor(model => model.Text)
+								</div>
+								<div class="editor-field">
+									@Html.TextAreaFor(model => model.Text, 10, 55, new { @class="form-control" })
+									@Html.ValidationMessageFor(model => model.Text)
+								</div>
+								
+				
+				
+								
+								
+  							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6">
+						
+					</div>
+				
+				</div>
+				</div>
+				
+			
+				
+				
+			
+			
+			
+				
+				
+			
+					
+					@Html.ActionLink("Отмена","", "Contract", null,new{@class="btn btn-default " })
+					
+					
+					<input class="btn btn-success " type="submit" value="@ViewBag.ActionButtonText"/>
+				
+			</fieldset>
+		}
+	

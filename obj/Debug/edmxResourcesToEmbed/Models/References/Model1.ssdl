@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dispetcheroffModel" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
+  <EntityContainer Name="dispetcheroffStoreContainer">
+    <EntitySet Name="activeContracts" EntityType="dispetcheroffModel.activeContracts" Schema="win610476" store:Name="activeContracts" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="autoMake" EntityType="dispetcheroffModel.autoMake" Schema="win610476" store:Name="autoMake" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="autoOffers" EntityType="dispetcheroffModel.autoOffers" Schema="win610476" store:Name="autoOffers" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="autoType" EntityType="dispetcheroffModel.autoType" Schema="win610476" store:Name="autoType" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="bids" EntityType="dispetcheroffModel.bids" Schema="win610476" store:Name="bids" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="district" EntityType="dispetcheroffModel.district" Schema="win610476" store:Name="district" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="mesures" EntityType="dispetcheroffModel.mesures" Schema="win610476" store:Name="mesures" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="offers" EntityType="dispetcheroffModel.offers" Schema="win610476" store:Name="offers" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="orders" EntityType="dispetcheroffModel.orders" Schema="win610476" store:Name="orders" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="personalArea" EntityType="dispetcheroffModel.personalArea" Schema="win610476" store:Name="personalArea" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="products" EntityType="dispetcheroffModel.products" Schema="win610476" store:Name="products" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="quality" EntityType="dispetcheroffModel.quality" Schema="win610476" store:Name="quality" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="region" EntityType="dispetcheroffModel.region" Schema="win610476" store:Name="region" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="serviceDescr" EntityType="dispetcheroffModel.serviceDescr" Schema="win610476" store:Name="serviceDescr" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="services" EntityType="dispetcheroffModel.services" Schema="win610476" store:Name="services" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="storePlace" EntityType="dispetcheroffModel.storePlace" Schema="win610476" store:Name="storePlace" store:Schema="win610476" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="dispetcheroffModel.user" Schema="win610476" store:Name="user" store:Schema="win610476" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="activeContracts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="text" Type="nvarchar" MaxLength="255" Nullable="true" />
+  </EntityType>
+  <EntityType Name="autoMake">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="true" />
+  </EntityType>
+  <EntityType Name="autoOffers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="int" Nullable="true" />
+    <Property Name="offerNum" Type="int" Nullable="true" />
+    <Property Name="autoMakeId" Type="int" Nullable="true" />
+    <Property Name="autoTypeId" Type="int" Nullable="true" />
+    <Property Name="tare" Type="numeric" Nullable="true" />
+    <Property Name="cargo" Type="nvarchar" MaxLength="30" Nullable="true" />
+    <Property Name="autoNumber" Type="nvarchar" MaxLength="30" Nullable="true" />
+    <Property Name="regionOfNumber" Type="nvarchar" MaxLength="30" Nullable="true" />
+    <Property Name="bortHeight" Type="nvarchar" MaxLength="3" Nullable="true" />
+    <Property Name="addCargoName" Type="nvarchar" MaxLength="30" Nullable="true" />
+    <Property Name="value" Type="numeric" Nullable="true" />
+    <Property Name="userIdUniq" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="createDate" Type="datetime" Nullable="true" />
+    <Property Name="tel" Type="nvarchar" MaxLength="10" Nullable="true" />
+  </EntityType>
+  <EntityType Name="autoType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="true" />
+  </EntityType>
+  <EntityType Name="bids">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="int" Nullable="true" />
+    <Property Name="codeNum" Type="int" Nullable="true" />
+    <Property Name="productId" Type="int" Nullable="true" />
+    <Property Name="value" Type="int" Nullable="true" />
+    <Property Name="regionId" Type="int" Nullable="true" />
+    <Property Name="districtId" Type="int" Nullable="true" />
+    <Property Name="city" Type="nvarchar" MaxLength="30" Nullable="true" />
+    <Property Name="qualityId" Type="int" Nullable="true" />
+    <Property Name="storePlaceId" Type="int" Nullable="true" />
+    <Property Name="price" Type="money" Nullable="true" />
+    <Property Name="minLot" Type="real" Nullable="true" />
+    <Property Name="weighouse" Type="int" Nullable="true" />
+    <Property Name="height" Type="real" Nullable="true" />
+    <Property Name="autoTypeId" Type="int" Nullable="true" />
+    <Property Name="tel" Type="nvarchar" MaxLength="10" Nullable="true" />
+    <Property Name="userIdUniq" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="createDate" Type="datetime" Nullable="true" />
+    <Property Name="sor" Type="float" Nullable="true" />
+    <Property Name="belok" Type="float" Nullable="true" />
+    <Property Name="vlazhnost" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="district">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="true" />
+    <Property Name="RegionId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="mesures">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="true" />
+    <Property Name="norma" Type="real" Nullable="true" />
+    <Property Name="fact" Type="real" Nullable="true" />
+    <Property Name="unitName" Type="nvarchar" MaxLength="10" Nullable="true" />
+    <Property Name="maxNorm" Type="real" Nullable="true" />
+    <Property Name="minNorm" Type="real" Nullable="true" />
+    <Property Name="note" Type="nvarchar" MaxLength="255" Nullable="true" />
+  </EntityType>
+  <EntityType Name="offers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="int" Nullable="true" />
+    <Property Name="offerNum" Type="nvarchar" MaxLength="10" Nullable="true" />
+    <Property Name="productId" Type="int" Nullable="true" />
+    <Property Name="value" Type="int" Nullable="true" />
+    <Property Name="regionId" Type="int" Nullable="true" />
+    <Property Name="districtId" Type="int" Nullable="true" />
+    <Property Name="city" Type="nvarchar" MaxLength="30" Nullable="true" />
+    <Property Name="qualityId" Type="int" Nullable="true" />
+    <Property Name="storePlaceId" Type="int" Nullable="true" />
+    <Property Name="price" Type="money" Nullable="true" />
+    <Property Name="tel" Type="nvarchar" MaxLength="10" Nullable="true" />
+    <Property Name="createDate" Type="datetime" Nullable="true" />
+    <Property Name="userIdUniq" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="sor" Type="float" Nullable="true" />
+    <Property Name="belok" Type="float" Nullable="true" />
+    <Property Name="vlazhnost" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="offers" Type="bit" Nullable="true" />
+    <Property Name="bids" Type="bit" Nullable="true" />
+    <Property Name="autoOrders" Type="bit" Nullable="true" />
+    <Property Name="offersDate" Type="date" Nullable="true" />
+    <Property Name="bidsDate" Type="date" Nullable="true" />
+    <Property Name="autoOrdersDate" Type="date" Nullable="true" />
+  </EntityType>
+  <EntityType Name="personalArea">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="usrId" Type="int" Nullable="true" />
+    <Property Name="money" Type="int" Nullable="true" />
+    <Property Name="activated" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="true" />
+  </EntityType>
+  <EntityType Name="quality">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="true" />
+  </EntityType>
+  <EntityType Name="region">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="true" />
+  </EntityType>
+  <EntityType Name="serviceDescr">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="true" />
+    <Property Name="purpose" Type="nvarchar" MaxLength="30" Nullable="true" />
+  </EntityType>
+  <EntityType Name="services">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="int" Nullable="true" />
+    <Property Name="serviceDescrId" Type="int" Nullable="true" />
+    <Property Name="active" Type="bit" Nullable="true" />
+    <Property Name="price" Type="money" Nullable="true" />
+    <Property Name="endDate" Type="datetime" Nullable="true" />
+    <Property Name="activationTime" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="storePlace">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" Nullable="true" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="true" />
+    <Property Name="password" Type="nvarchar" MaxLength="30" Nullable="true" />
+    <Property Name="tel" Type="nvarchar" MaxLength="10" Nullable="true" />
+  </EntityType>
+</Schema>

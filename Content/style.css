@@ -1,0 +1,166 @@
+﻿
+/*@font-face{ 
+	font-family: 'fontello';
+	src: url('/Fonts/fontawesome-webfont.eot');
+	src: url('/Fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/Fonts/fontawesome-webfont.woff') format('woff'),
+	     url('/Fonts/fontawesome-webfont.ttf') format('truetype'),
+	     url('/Fonts/fontawesome-webfont.svg#webfont') format('svg');
+}*/
+
+@import url(http://fonts.googleapis.com/css?family=Didact+Gothic&subset=latin,cyrillic);
+
+
+.field-validation-error { color: red; font-size: small }
+.validation-summary-errors { color: red; font-size: small  }
+
+p { font-family: 'Didact Gothic', sans-serif; }
+
+.modal-dialog {
+  padding-top: 15%;
+}
+
+
+ .marquee span{
+      -webkit-animation: moveSlideshow 165s steps(10000) infinite;
+ }
+ 
+
+
+        .modal-content {
+            width: 600px !important;
+            margin: 30px auto !important;
+        }
+
+
+
+.col-centered{
+float: none;
+margin: 0 auto;
+}
+ 
+ .ccc {
+    -webkit-border-radius: 8px; /** newer webkit browsers **/
+    -khtml-border-radius: 8px; /** older webkit browsers **/
+    -moz-border-radius: 8px; /** older gecko browsers **/
+    -o-border-radius: 8px; /** older opera browsers **/
+    border-radius: 8px; /** all modern browsers, including IE9+, but see below **/
+}
+
+
+
+body {
+   
+     /*background: url(/Images/bedge_grunge.png);*/
+     /*background:  #3366CC;*/
+     
+}
+
+.jumbotron {
+    background-color: wheat;
+    margin-top: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: 5px;
+    background-image: url(/Images/wheatflip.gif);
+}
+
+.cuadro_intro_hover{
+    	padding: 0px;
+		position: relative;
+		overflow: hidden;
+		height: 200px;
+	}
+	.cuadro_intro_hover:hover .caption{
+		opacity: 1;
+		transform: translateY(-150px);
+		-webkit-transform:translateY(-150px);
+		-moz-transform:translateY(-150px);
+		-ms-transform:translateY(-150px);
+		-o-transform:translateY(-150px);
+	}
+	.cuadro_intro_hover img{
+		z-index: 4;
+		
+	}
+	.cuadro_intro_hover .caption{
+		position: absolute;
+		top:150px;
+		-webkit-transition:all 0.3s ease-in-out;
+		-moz-transition:all 0.3s ease-in-out;
+		-o-transition:all 0.3s ease-in-out;
+		-ms-transition:all 0.3s ease-in-out;
+		transition:all 0.3s ease-in-out;
+		width: 100%;
+	}
+	.cuadro_intro_hover .blur{
+		background-color: rgba(0,0,0,0.7);
+		height: 300px;
+		z-index: 5;
+		position: absolute;
+		width: 100%;
+	}
+	.cuadro_intro_hover .caption-text{
+		z-index: 10;
+		color: #fff;
+		position: absolute;
+		height: 300px;
+		text-align: center;
+		top:-20px;
+		width: 100%;
+	}
+	
+	
+	/*thumb pictures*/
+	
+	div.filter-options {
+    margin: 15px 0 15px 0;
+	}
+	figure {
+	    position: relative;
+	    line-height: 0;
+	    width: 100%;
+	    max-width: 500px;
+	    margin-bottom: 15px;
+	    
+	}
+	figure img {
+		
+	    width: 100%;
+	    height: 130px;
+	}
+	figcaption {
+	    position: absolute;
+	   	
+	    padding-left:10px;
+	    bottom: 0;
+	    width: 100%;
+	    height: 100%;
+	    line-height: 1em;
+	    background-color: rgba(0, 0, 0, 0.5);
+	    -webkit-transition: all 2s ease 0s;
+	    -moz-transition: all 2s ease 0s;
+	    -ms-transition: all 2s ease 0s;
+	    -o-transition: all 2s ease 0s;
+	    transition: all 2s ease 0s;
+	}
+	figcaption:hover {
+	    background-color: rgba(0, 0, 0, 0.8);
+	}
+	figcaption:hover > div {
+	   /* color: rgba(255, 255, 255, 0);*/
+	}
+	figcaption > div {
+		
+	    position: absolute;
+	    bottom: 0;
+	    color: rgba(255, 255, 255, 1);
+	    -webkit-transition: all 2s ease 0s;
+	    -moz-transition: all 2s ease 0s;
+	    -ms-transition: all 2s ease 0s;
+	    -o-transition: all 2s ease 0s;
+	    transition: all 2s ease 0s;
+	}
+	
+	
+}

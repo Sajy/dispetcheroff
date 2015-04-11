@@ -1,0 +1,292 @@
+﻿@model mvc2.Models.Transport
+@using mvc2.Helpers
+@using mvc2.Models.References
+@using System.Web.Mvc.Ajax;
+@{
+
+var attrs = new Dictionary<string, object>();
+attrs.Add("class","selectpicker"); 
+attrs.Add("data-width","auto");
+int transId=0;
+
+if (Model!=null) {transId=Model.Id;}
+
+
+}
+
+<script>
+
+
+/*function addRow(val1,val2,val3) {
+
+@{
+Model.AutoNumbers.Add(new AutoNumber());
+}
+
+var index = $("#tbBooks").children("tr").length;
+
+
+var indexCell = "<td style='display:none'><input name='AutoNumbers.Index' type='hidden' value='" + index + "' /></td>";
+
+//var modelCell = "<td><select class='form-control' data-width='100%' id='AutoModelId' name='AutoNumbers[" + index + "].NumAutoModelId'><option value="+val1+">Вольво</option><option value='2'>Даф</option><option value='6'>Камаз</option><option value='5'>Маз</option><option value='1'>Ман</option><option value='4'>Мерседес</option></select></td>";
+
+
+var modelCell = "<td>@Html.Raw(Html.DropDownList("AutoModelId",(IEnumerable<SelectListItem>)ViewBag.AutoModelIdLb, attrs))</td>";
+
+var typeCell = "<td><select class='form-control' data-width='100%' id='AutoTypeId' name='AutoNumbers[" + index + "].NumAutoTypeId'><option value="+val2+">Cамосвал</option><option value='1'>Cцепка</option><option value='2'>Полуприцеп</option></select></td>";
+
+var publishedCell = "<td><input class='form-control' id='AutoNumbers[" + index + "]Title' name='AutoNumbers[" + index + "].NumberText' type='text' value="+val3+" /></td>";
+
+var removeCell = "<td><input id='btnAddBook' class='btn btn-warning' type='button' value='Удалить' onclick='removeRow(" + index + ");' /></td>";
+
+var newRow = "<tr id='trBook" + index + "'>" +modelCell+typeCell+indexCell+ publishedCell + removeCell + "</tr>";
+$("#tbBooks").append(newRow);
+}
+
+function removeRow(id) {
+var controlToBeRemoved = "#trBook" + id;
+$(controlToBeRemoved).remove();
+}*/
+
+
+
+var index = -1;
+
+function changeQty(){
+ var tmp=$("#tbBooks").children("tr").length;
+  $('#qty').html(tmp);
+  $('#AutosQuantity').html(tmp);
+  $('#AutosQuantity').attr("value", tmp);
+}
+	
+function deleteContainer(evt) {
+	index--;
+    evt = evt || window.event;
+    var target = evt.target || evt.srcElement;
+    target.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode);
+    changeQty();
+}
+
+$(document).ready(function () {
+	
+	$('#Date').datepicker({
+		language: "ru", autoclose: true
+	});
+	
+	$("#Tel").mask("(999) 999-99-99");
+	$("#Date").mask("99.99.9999");
+	
+	//$('#btnAddAuto').click(function (event) {
+   	changeQty();
+	$('#bcont').on("click", "#btnAddAuto", function(event){
+		
+	
+		//if (index>4) {alert ('Можно добавлять не больее 6 авто');return;}
+		var l = Ladda.create( document.querySelector( '#btnAddAuto' ) );
+		l.start();
+		
+		event.preventDefault();
+		$.ajax({
+     			url: '@Url.Action("Row", "Transport")',
+     			data: { id : index, transportid: @Model.Id  /* add other additional parameters */ },
+     			success: function(data) {
+     				if ($("#tbBooks").children("tr").length<=4){
+     				index++;
+     			
+     				
+     				$('#tbBooks').html(data);
+     				$('[name^=AutoNumbers]').selectpicker('refresh');
+     				} else alert('Максимальное количество авто 5!');
+     				changeQty();
+     				l.stop();
+     			}
+     		});
+     	
+	});
+	
+	
+	
+
+
+
+
+
+});
+
+
+
+
+</script>
+
+
+
+@using (Html.BeginForm()) {
+@Html.ValidationSummary(true)
+<fieldset>
+<legend><h2>@ViewBag.Title</h2></legend>
+
+<div id="mantra">
+<div  class="row">
+		
+<div class="col-md-4">
+<div class="panel panel-default">
+<div class="panel-body">
+
+
+
+<div class="editor-label">
+@Html.LabelFor(model => model.Tel)
+</div>
+<div class="editor-field">
+@Html.TextBoxFor(model => model.Tel, null, new {@class="form-control", placeholder="(011) 111-11-11"})
+@Html.ValidationMessageFor(model => model.Tel)
+</div>
+
+
+<div class="editor-label">
+@Html.LabelFor(model => model.Email)
+</div>
+<div class="editor-field">
+@Html.TextBoxFor(model => model.Email, null, new {@class="form-control", maxlength=128, placeholder="yourname@mail.com"  })
+@Html.ValidationMessageFor(model => model.Email)
+</div>
+
+
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="panel panel-default">
+<div class="panel-body">
+
+
+  
+
+ 
+
+
+<div class="editor-label">
+@Html.LabelFor(model => model.Date)
+</div>
+<div class="editor-field">
+<!--<input id="Date"  type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>-->
+@Html.TextBoxFor(model => model.Date, "{0:MM.dd.yyyy}", new {@class="form-control",  maxlength=10, placeholder="01.01.2015" })
+@Html.ValidationMessageFor(model => model.Date)
+</div>
+
+<div class="editor-label">
+<br><b>Загрузить сканы документов</b>
+</div>
+<div class="editor-field">
+<td><input type="file" data-buttonText="Загрузить..." class="filestyle"></td>
+</div>
+</div>
+</div>
+
+
+</div>		
+<div class="col-md-4">
+
+</div>
+</div>
+
+
+
+<div class="row">
+<div class="col-md-8">
+<div class="panel panel-warning">
+<div class="panel-heading">
+    <h4 class="panel-title"><b>Имеющийся в наличии транспорт</b></h4>
+  </div>
+<div class="panel-body">
+
+<!---------------------------------------------------->
+
+
+
+<div id="bcont" class="text-right" >
+<!--<input  id="btnAddAuto" type="button" class="btn btn-default"
+onclick="addRow('','',' ');" value="Добавить авто" />-->
+
+<a id="btnAddAuto" href="@Url.Action("Row")" class="btn btn-warning ladda-button" data-size="xs" data-style="slide-up"><span class="ladda-label">Добавить авто</span></a>
+
+@*@Html.ActionLink("Добавить авто","Row", null, new { battrs, id = "btnAddAuto" })*@
+@*@Ajax.ActionLink("Добавить авто", "Row", "Transport", new {}, new AjaxOptions{UpdateTargetId = "tbBooks"}, new {id = "btnAddAuto"})*@
+</div>
+<table class="table table-hover table-condensed">
+<thead>
+<tr>
+
+
+<th>
+Модель
+</th>
+<th>
+Тип
+</th>
+<th>
+Госномер
+</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="tbBooks">
+
+@Html.Partial("UpdateRow", Model)
+</tbody>
+
+</table>
+<div class="text-right"><h5>Количество автомобилей: <span id="qty">0</span><input type="hidden" id="AutosQuantity" value="0" name="AutosQuantity"></input></h5></div>
+
+<!---------------------------------------------------->
+</div>
+</div></div>
+</div>
+
+
+
+
+<div class="row">
+<div class="col-md-8 text-right">
+<div class="panel panel-default">
+<div class="panel-body">
+
+@Html.ActionLink("Отмена","", "Transport", null,new{@class="btn btn-default " })
+<input class="btn btn-success " type="submit" value="@ViewBag.ActionButtonText"/>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</fieldset>
+
+
+
+
+
+
+
+@*@foreach (AutoNumber a in Model.AutoNumbers) {
+   <script type="text/javascript">
+     addRow('@a.NumAutoModelId','@a.NumAutoTypeId','@a.NumberText');
+   </script>
+}*@
+
+
+
+}

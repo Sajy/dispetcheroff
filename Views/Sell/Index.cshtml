@@ -1,0 +1,113 @@
+﻿
+@using mvc2.Models.Grids
+@using mvc2.Helpers
+
+@model IEnumerable<SellGridModel> 
+<script>
+$(document).ready(function () {
+
+
+@if (TempData["UserMessage"] != null) {
+	<text>
+		$('#alert1').modal();
+	</text>
+}
+
+
+
+var id1 = $("#FiltProdId :selected").val();
+var id2 = $("#FiltDepId :selected").val();
+if (id2=="" && id1=="") $("#cancelFilter").hide(); else $("#cancelFilter").show();
+
+
+});
+
+$("#signupform").submit(function() {
+$("#WaitDialog").modalDialog(); alert('dfdf');
+});
+</script>
+
+@Html.Partial("InfoDialog")
+
+<div class="row">
+	<div class="col-sm-5"><h1><b>Объявления о продаже<br><small> сельскохозяйственной продукции</small></b></h1></div>
+	<div class="col-sm-3"><h1><img class="img-rounded" src="~/Images/thumb1.gif" height="100" width="170"></h1></div>
+	<h1>@Html.Partial("Banner1")</h1>
+</div>
+
+
+
+<hr>
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "signupform" })) {
+
+
+@Html.NoEcdActionLink("<i class='glyphicon glyphicon-plus'></i> Добавить объявление","Create", "Sell", null,new{@class="btn btn-success btn-lg" })<br><br>
+
+
+@Html.DropDownList("FiltProdId",(IEnumerable<SelectListItem>)ViewBag.ProductId,"Все товары", new { @class="selectpicker show-tick",onchange = "this.form.submit();" })
+@Html.DropDownList("FiltDepId",(IEnumerable<SelectListItem>)ViewBag.DepartmentId, "Все области", new { @class="selectpicker show-tick",onchange = "this.form.submit();" })
+<input id="cancelFilter" class="btn btn-warning"  value="Показать все">
+<script>$("#cancelFilter").click(function(){location.href = '@Url.Action("Index")';});</script>
+
+
+
+
+}
+</br>
+<table class="table table-hover">
+<th>№</th>
+
+@{
+
+var FiltProdId=ViewBag.FiltProdId;
+var FiltDepId=ViewBag.FiltDepId;
+var sortProductParams=new{sortingOrder = ViewBag.SortingByProduct, FiltProdId, FiltDepId};
+var sortDateParams=new{sortingOrder = ViewBag.SortingByDate, FiltProdId, FiltDepId};
+var sortQtyParams=new{sortingOrder = ViewBag.SortingByQty, FiltProdId, FiltDepId};
+var sortPriceParams=new{sortingOrder = ViewBag.SortingByPrice, FiltProdId, FiltDepId};
+var sortDeptParams=new{sortingOrder = ViewBag.SortingByDept, FiltProdId, FiltDepId};
+
+}
+
+<th>@Html.ActionLink(@Html.DisplayNameFor(model => model.Name).ToString(), "Index",sortProductParams,new {@title="Сортировать по товару"})</th>
+<th>@Html.ActionLink(@Html.DisplayNameFor(model => model.Amount).ToString(), "Index",sortQtyParams,new {@title="Сортировать по количеству"})</th>
+<th>@Html.ActionLink(@Html.DisplayNameFor(model => model.Price).ToString(), "Index",sortPriceParams,new {@title="Сортировать по цене"})</th>
+<th>@Html.ActionLink(@Html.DisplayNameFor(model => model.Department).ToString(), "Index",sortDeptParams,new {@title="Сортировать по области"})</th>
+<th>@Html.ActionLink(@Html.DisplayNameFor(model => model.Date).ToString(), "Index",sortDateParams, new {@title="Сортировать по дате"})</th>
+<th></th>
+<th></th>
+@foreach (SellGridModel d in Model)
+{
+<tr>
+<td>@Html.DisplayFor(modelItem => d.Id)</td>
+<td>@Html.DisplayFor(modelItem => d.Name)</td>
+<td>@Html.DisplayFor(modelItem => d.Amount)</td>
+<td>@Html.DisplayFor(modelItem => d.Price)</td>
+<td>@Html.DisplayFor(modelItem => d.Department)</td>
+<td>@Html.DisplayFor(modelItem => d.Date)</td>
+
+<td>
+<a title="Удалить объявление" class="btn btn-danger btn-xs" onclick="return confirm('Вы уверены что хотите полностью удалить объявление?');" href="@Url.Action("Delete", "Sell", new {id=d.Id})" role="button"><span class="glyphicon glyphicon-remove"></span></a>
+</td>
+<td>
+<a title="Редактировать объявление" class="btn btn-primary btn-xs" href="@Url.Action("Edit", "Sell", new {id=d.Id})" role="button"><span class="glyphicon glyphicon-edit"></span></a>
+</td>
+
+</tr>
+}
+</table>
+
+
+
+
+
+<div id="WaitDialog"   class="hidden" style="text-align: center">
+
+<div style="margin-top: 10px; color: white">
+<b>Please wait</b>
+</div>
+</div>
+
+

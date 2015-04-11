@@ -1,0 +1,63 @@
+﻿@using mvc2.Helpers
+
+<nav class="navbar navbar-inverse ">
+<div class="container">
+
+ <div class="navbar-header  ">
+ 	 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
+            <span class="sr-only">Меню</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+     </button>
+ 	<a class="navbar-brand" ><a title= "Главная" class="navbar-brand" href="@Url.Action("","")">
+        <img alt="Brand" src="~/Images/brand.gif"></a>
+ </div>
+<div class="collapse navbar-collapse" id="navbar1" >
+<ul class="nav navbar-nav">
+<!-- <li><a href="@Url.Action("","Sell")"><b>Dispetcheroff.net</b></a></li>-->
+  <li><a href="@Url.Action("","Sell")">Продажа</a></li>
+  <li><a href="@Url.Action("","Buy")">Закупка</a></li>
+  <li><a href="@Url.Action("","Transport")">Транспорт</a></li>
+   <li><a href="@Url.Action("","Contract")">Наши предложения</a></li>
+   <li><a href="@Url.Action("About","Home")">О нас</a></li>
+
+
+
+
+ 
+ 
+      
+    </ul>  
+  	
+     <form class=" navbar-form navbar-right " role="form" >
+     		@{
+     		
+     		string logButText=" Войти";
+     		string butAction="Login";
+     		string logButtonGlif="glyphicon glyphicon-log-in";
+     		
+     		
+     		if (User.Identity.IsAuthenticated) {logButText=" Выйти";butAction="Logoff"; logButtonGlif="glyphicon glyphicon-log-out";}
+     		
+     		
+     		
+     		}
+     		
+     		@Html.NoEcdActionLink("<i class='"+logButtonGlif+"'></i>"+@logButText,@butAction, "Account", null,new{@class=" btn btn-warning btn-sm" })
+     		@if (User.Identity.IsAuthenticated) 	{@Html.NoEcdActionLink("<i class='glyphicon glyphicon-user'></i> ("+@User.Identity.Name+")","PersonalArea", "Account", null,new{@class=" btn btn-primary btn-sm" })	}
+     		@if (!User.Identity.IsAuthenticated) 	{@Html.NoEcdActionLink("<i class='glyphicon glyphicon-file'></i> Регистрация","Registration", "Account",null,new{@class="btn btn-info btn-sm" })	}
+     		
+     		
+     		
+     	
+   
+      </form>
+
+	</div>
+
+ </div>
+</nav>
+
+
+

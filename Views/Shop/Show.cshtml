@@ -1,0 +1,9 @@
+﻿@model List<Auction>
+
+@using mvc2.Models
+@foreach (Auction d in Model)
+    {
+        <li>
+            @d.Title
+        </li>
+    }

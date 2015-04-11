@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DetailsAnGrid> 
+@using mvc2.Models
+@using mvc2.Models.Grids
+
+<div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Имеющийся в наличии автотранспорт</h4>
+      </div>
+
+<div class="modal-body">
+ 
+    @using (Html.BeginForm())
+    {
+    
+   
+     
+     
+	     <table class="table">
+			<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.AutoModel)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.AutoType)
+			</th>
+	
+			<th>
+				@Html.DisplayNameFor(model => model.AutoNumber)
+			</th>
+			<th>
+			
+			</th>
+			
+		
+		
+	@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(model => item.AutoModel)
+			</td>
+			<td>
+				@Html.DisplayFor(model => item.AutoType)
+			</td>
+		
+			<td>
+				@Html.DisplayFor(model => item.AutoNumber)
+			</td>
+			<td>
+				
+			</td>
+		
+		</tr>
+	}
+	</table>
+	     
+     
+     
+     
+     
+
+      
+      	
+
+    }
+</div>
+
+ <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+       
+    </div>
+<script type="text/javascript">
+
+
+
+
+    $(function () {
+    
+    
+    
+        $('#approve-btn').click(function () {
+            $('#modal-container').modal('hide');
+        });
+    });
+</script>

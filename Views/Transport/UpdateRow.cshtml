@@ -1,0 +1,56 @@
+﻿
+@using mvc2.Helpers
+@using mvc2.Models.References
+@using mvc2.Models
+
+
+
+@{
+
+var attrs = new Dictionary<string, object>();
+attrs.Add("class","selectpicker"); 
+attrs.Add("data-width","100%");
+
+
+string a="";
+
+int num=0;
+int savedindex=0;
+string fieldPrefix="";
+int mk=Enumerable.Count(ViewBag.Rows);
+
+
+
+}
+
+
+@for(var i = 0; i < mk-1; i++){
+	AutoNumber an=Model.AutoNumbers[i];
+
+
+a=an.Id.ToString();
+savedindex=an.Id;
+fieldPrefix = string.Format("{0}[{1}].","AutoNumbers", an.Id);
+
+
+
+
+<tr id='trBook1'>
+
+<td style="display:none"><input name="AutoNumbers.Index" type="hidden" value="@savedindex" /></td>
+@Html.Hidden(fieldPrefix + "Id", an.Id)
+@Html.Hidden(fieldPrefix + "TransportId", an.TransportId)
+<td>@Html.DropDownListCustom("AutoModelId",(IEnumerable<SelectListItem>)Model.getSelectedAutoModelList(@an.NumAutoModelId), attrs, a, "AutoNumbers", "NumAutoModelId")</td>
+<td>@Html.DropDownListCustom("AutoTypeId",(IEnumerable<SelectListItem>)Model.getSelectedAutoTypeList(@an.NumAutoTypeId), attrs, a, "AutoNumbers", "NumAutoTypeId")</td>
+<td><input class="form-control" placeholder="АА5677СН" maxlength=8 id="AutoNumbers[@savedindex]Title" name="AutoNumbers[@savedindex].NumberText" type="text" value="@an.NumberText" /></td>
+
+
+
+<td><button id="@savedindex" class="btn btn-danger btn-xs" type="button" value="Удалить" onclick="if (confirm('Вы уверены что хотите удалить авто?')) deleteContainer(event);" > <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+
+
+
+</tr>
+
+}
+

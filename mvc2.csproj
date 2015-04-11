@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{A3FA592F-B891-46BC-AFDF-B85654666DF5}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>mvc2</RootNamespace>
+    <AssemblyName>mvc2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <UseIISExpress>False</UseIISExpress>
+    <TargetFrameworkProfile />
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Users\Администратор\AppData\Roaming\ICSharpCode/SharpDevelop4\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <StartAction>Program</StartAction>
+    <StartArguments>/config:C:\applicationhost.config /siteid:1</StartArguments>
+    <StartProgram>C:\Program Files\IIS Express\iisexpress.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.SharpDevelop.6.0.2\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.SharpDevelop.6.0.2\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.XmlTransform">
+      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Core">
+      <HintPath>..\packages\NuGet.Core.2.8.3\lib\net40-Client\NuGet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc" />
+    <Reference Include="System.Web.WebPages" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAuthProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BuyController.cs" />
+    <Compile Include="Controllers\ContractController.cs" />
+    <Compile Include="Controllers\ContUtils.cs" />
+    <Compile Include="Controllers\ContUtilsBuy.cs" />
+    <Compile Include="Controllers\ContUtilsTrans.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SellController.cs" />
+    <Compile Include="Controllers\TransportController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CustomHelper.cs" />
+    <Compile Include="Infrastructure\Concrete\DbInitializer.cs" />
+    <Compile Include="Infrastructure\Concrete\FormAuthProvider.cs" />
+    <Compile Include="Infrastructure\Db\BuyContext.cs" />
+    <Compile Include="Infrastructure\Db\ContractContext.cs" />
+    <Compile Include="Infrastructure\Db\DispDataContext.cs" />
+    <Compile Include="Infrastructure\Db\SellContext.cs" />
+    <Compile Include="Infrastructure\Db\TransportContext.cs" />
+    <Compile Include="Migrations\201503261055281_rev1.cs" />
+    <Compile Include="Migrations\201503261055281_rev1.Designer.cs">
+      <DependentUpon>201503261055281_rev1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503271913319_rev11.cs" />
+    <Compile Include="Migrations\201503271913319_rev11.Designer.cs">
+      <DependentUpon>201503271913319_rev11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504102046405_rev12.cs" />
+    <Compile Include="Migrations\201504102046405_rev12.Designer.cs">
+      <DependentUpon>201504102046405_rev12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Buy\201503270734026_rev1.cs" />
+    <Compile Include="Migrations\Buy\201503270734026_rev1.Designer.cs">
+      <DependentUpon>201503270734026_rev1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Buy\201503270853488_rev11.cs" />
+    <Compile Include="Migrations\Buy\201503270853488_rev11.Designer.cs">
+      <DependentUpon>201503270853488_rev11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Buy\201503270914359_rev12.cs" />
+    <Compile Include="Migrations\Buy\201503270914359_rev12.Designer.cs">
+      <DependentUpon>201503270914359_rev12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Buy\201503270927498_rev13.cs" />
+    <Compile Include="Migrations\Buy\201503270927498_rev13.Designer.cs">
+      <DependentUpon>201503270927498_rev13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Buy\201503270956266_rev131.cs" />
+    <Compile Include="Migrations\Buy\201503270956266_rev131.Designer.cs">
+      <DependentUpon>201503270956266_rev131.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Buy\201503271828044_rev14.cs" />
+    <Compile Include="Migrations\Buy\201503271828044_rev14.Designer.cs">
+      <DependentUpon>201503271828044_rev14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Buy\201503271912569_rev15.cs" />
+    <Compile Include="Migrations\Buy\201503271912569_rev15.Designer.cs">
+      <DependentUpon>201503271912569_rev15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Buy\201504012100218_rev16.cs" />
+    <Compile Include="Migrations\Buy\201504012100218_rev16.Designer.cs">
+      <DependentUpon>201504012100218_rev16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Buy\Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Transport\201504022140357_rev1.cs" />
+    <Compile Include="Migrations\Transport\201504022140357_rev1.Designer.cs">
+      <DependentUpon>201504022140357_rev1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Transport\201504022156173_rev11.cs" />
+    <Compile Include="Migrations\Transport\201504022156173_rev11.Designer.cs">
+      <DependentUpon>201504022156173_rev11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Transport\201504040838255_rev111.cs" />
+    <Compile Include="Migrations\Transport\201504040838255_rev111.Designer.cs">
+      <DependentUpon>201504040838255_rev111.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Transport\201504091344257_rev12.cs" />
+    <Compile Include="Migrations\Transport\201504091344257_rev12.Designer.cs">
+      <DependentUpon>201504091344257_rev12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Transport\201504091815193_rev13.cs" />
+    <Compile Include="Migrations\Transport\201504091815193_rev13.Designer.cs">
+      <DependentUpon>201504091815193_rev13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Transport\201504091818042_rev14.cs" />
+    <Compile Include="Migrations\Transport\201504091818042_rev14.Designer.cs">
+      <DependentUpon>201504091818042_rev14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Transport\Configuration.cs" />
+    <Compile Include="Models\Auction.cs" />
+    <Compile Include="Models\Buy.cs" />
+    <Compile Include="Models\Contract.cs" />
+    <Compile Include="Models\Grids\AutoNumbersSort.cs" />
+    <Compile Include="Models\Grids\BuyGridModel.cs" />
+    <Compile Include="Models\Grids\ContractGridModel.cs" />
+    <Compile Include="Models\Grids\DetailsAnGrid.cs" />
+    <Compile Include="Models\Grids\DistrictInDep.cs" />
+    <Compile Include="Models\Grids\TransportGridModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\Grids\SellGridModel.cs" />
+    <Compile Include="Models\References\AutoModel.cs" />
+    <Compile Include="Models\References\AutoNumber.cs" />
+    <Compile Include="Models\References\AutoType.cs" />
+    <Compile Include="Models\References\Department.cs" />
+    <Compile Include="Models\References\District.cs" />
+    <Compile Include="Models\References\HoldArea.cs" />
+    <Compile Include="Models\References\Product.cs" />
+    <Compile Include="Models\References\ProductType.cs" />
+    <Compile Include="Models\References\Quality.cs" />
+    <Compile Include="Models\Sell.cs" />
+    <Compile Include="Models\Transport.cs" />
+    <Compile Include="Models\Utils\ServiceData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\style.css" />
+    <None Include="Global.asax" />
+    <None Include="packages.config" />
+    <None Include="Views\Account\Login.cshtml" />
+    <None Include="Views\Account\PersonalArea.cshtml" />
+    <None Include="Views\Account\Registration.cshtml" />
+    <None Include="Views\Account\test.cshtml" />
+    <None Include="Views\Buy\Create.cshtml" />
+    <None Include="Views\Buy\Delete.cshtml" />
+    <None Include="Views\Buy\Edit.cshtml" />
+    <None Include="Views\Buy\Index.cshtml" />
+    <None Include="Views\Buy\_EditComps.cshtml" />
+    <None Include="Views\Contract\Create.cshtml" />
+    <None Include="Views\Contract\Delete.cshtml" />
+    <None Include="Views\Contract\Edit.cshtml" />
+    <None Include="Views\Contract\Index.cshtml" />
+    <None Include="Views\Contract\test.cshtml" />
+    <None Include="Views\Contract\_EditComps.cshtml" />
+    <None Include="Views\Home\About.cshtml" />
+    <None Include="Views\Home\Buy.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Shared\Banner1.cshtml" />
+    <None Include="Views\Shared\Footer.cshtml" />
+    <None Include="Views\Shared\InfoDialog.cshtml" />
+    <None Include="Views\Shared\NavBar.cshtml" />
+    <None Include="Views\Transport\AddAutoDialog.cshtml" />
+    <None Include="Views\Transport\Create.cshtml" />
+    <None Include="Views\Transport\Delete.cshtml" />
+    <None Include="Views\Transport\Details.cshtml" />
+    <None Include="Views\Transport\Edit.cshtml" />
+    <None Include="Views\Transport\Index.cshtml" />
+    <None Include="Views\Sell\Create.cshtml" />
+    <None Include="Views\Sell\Delete.cshtml" />
+    <None Include="Views\Sell\Edit.cshtml" />
+    <None Include="Views\Sell\Index.cshtml" />
+    <None Include="Views\Sell\_EditComps.cshtml" />
+    <None Include="Views\Shared\Adware.cshtml" />
+    <None Include="Views\Shop\Create.cshtml" />
+    <None Include="Views\Shop\Index.cshtml" />
+    <None Include="Views\Shop\Show.cshtml" />
+    <None Include="Views\Transport\Row.cshtml" />
+    <None Include="Views\Transport\UpdateRow.cshtml" />
+    <None Include="Views\Transport\_EditComps.cshtml" />
+    <None Include="Views\web.config" />
+    <None Include="Views\_BasicLayout.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Infrastructure\Concrete" />
+    <Folder Include="Models\References" />
+    <Folder Include="Models\Grids" />
+    <Folder Include="Models\Utils" />
+    <Folder Include="Views" />
+    <Folder Include="Controllers" />
+    <Folder Include="Views\Home" />
+    <Folder Include="Views\Shop" />
+    <Folder Include="Views\Account" />
+    <Folder Include="Models" />
+    <Folder Include="Abstract" />
+    <Folder Include="Infrastructure" />
+    <Folder Include="Views\Shared" />
+    <Folder Include="Infrastructure\Db" />
+    <Folder Include="Scripts" />
+    <Folder Include="Content" />
+    <Folder Include="Images" />
+    <Folder Include="Fonts" />
+    <Folder Include="Views\Sell" />
+    <Folder Include="Migrations" />
+    <Folder Include="Views\Transport" />
+    <Folder Include="Views\Buy" />
+    <Folder Include="Views\Contract" />
+    <Folder Include="Helpers" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mvc2.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201503261055281_rev1.resx">
+      <DependentUpon>201503261055281_rev1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503271913319_rev11.resx">
+      <DependentUpon>201503271913319_rev11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504102046405_rev12.resx">
+      <DependentUpon>201504102046405_rev12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Buy\201503270734026_rev1.resx">
+      <DependentUpon>201503270734026_rev1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Buy\201503270853488_rev11.resx">
+      <DependentUpon>201503270853488_rev11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Buy\201503270914359_rev12.resx">
+      <DependentUpon>201503270914359_rev12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Buy\201503270927498_rev13.resx">
+      <DependentUpon>201503270927498_rev13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Buy\201503270956266_rev131.resx">
+      <DependentUpon>201503270956266_rev131.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Buy\201503271828044_rev14.resx">
+      <DependentUpon>201503271828044_rev14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Buy\201503271912569_rev15.resx">
+      <DependentUpon>201503271912569_rev15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Buy\201504012100218_rev16.resx">
+      <DependentUpon>201504012100218_rev16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Transport\201504022140357_rev1.resx">
+      <DependentUpon>201504022140357_rev1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Transport\201504022156173_rev11.resx">
+      <DependentUpon>201504022156173_rev11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Transport\201504040838255_rev111.resx">
+      <DependentUpon>201504040838255_rev111.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Transport\201504091344257_rev12.resx">
+      <DependentUpon>201504091344257_rev12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Transport\201504091815193_rev13.resx">
+      <DependentUpon>201504091815193_rev13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Transport\201504091818042_rev14.resx">
+      <DependentUpon>201504091818042_rev14.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8080</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/mvc2</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

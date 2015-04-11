@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mvc2" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="dispetcheroffObjectContext">
+    <EntitySet Name="activeContracts" EntityType="mvc2.activeContracts" />
+    <EntitySet Name="autoMake" EntityType="mvc2.autoMake" />
+    <EntitySet Name="autoOffers" EntityType="mvc2.autoOffers" />
+    <EntitySet Name="autoType" EntityType="mvc2.autoType" />
+    <EntitySet Name="bids" EntityType="mvc2.bids" />
+    <EntitySet Name="district" EntityType="mvc2.district" />
+    <EntitySet Name="mesures" EntityType="mvc2.mesures" />
+    <EntitySet Name="offers" EntityType="mvc2.offers" />
+    <EntitySet Name="orders" EntityType="mvc2.orders" />
+    <EntitySet Name="personalArea" EntityType="mvc2.personalArea" />
+    <EntitySet Name="products" EntityType="mvc2.products" />
+    <EntitySet Name="quality" EntityType="mvc2.quality" />
+    <EntitySet Name="region" EntityType="mvc2.region" />
+    <EntitySet Name="serviceDescr" EntityType="mvc2.serviceDescr" />
+    <EntitySet Name="services" EntityType="mvc2.services" />
+    <EntitySet Name="storePlace" EntityType="mvc2.storePlace" />
+    <EntitySet Name="user" EntityType="mvc2.user" />
+  </EntityContainer>
+  <EntityType Name="activeContracts" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="text" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="255" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="autoMake" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="autoOffers" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="userId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="offerNum" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="autoMakeId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="autoTypeId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="tare" Type="Decimal" ConcurrencyMode="None" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="cargo" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+    <Property Name="autoNumber" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+    <Property Name="regionOfNumber" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+    <Property Name="bortHeight" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="3" Nullable="true" Unicode="true" />
+    <Property Name="addCargoName" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+    <Property Name="value" Type="Decimal" ConcurrencyMode="None" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="userIdUniq" Type="Guid" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="createDate" Type="DateTime" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="tel" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="10" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="autoType" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="bids" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="userId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="codeNum" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="productId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="value" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="regionId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="districtId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="city" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+    <Property Name="qualityId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="storePlaceId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="price" Type="Decimal" ConcurrencyMode="None" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="minLot" Type="Single" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="weighouse" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="height" Type="Single" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="autoTypeId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="tel" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="10" Nullable="true" Unicode="true" />
+    <Property Name="userIdUniq" Type="Guid" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="createDate" Type="DateTime" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="sor" Type="Double" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="belok" Type="Double" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="vlazhnost" Type="Double" ConcurrencyMode="None" Nullable="true" />
+  </EntityType>
+  <EntityType Name="district" Abstract="false">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="Name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+    <Property Name="RegionId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+  </EntityType>
+  <EntityType Name="mesures" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="255" Nullable="true" Unicode="true" />
+    <Property Name="norma" Type="Single" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="fact" Type="Single" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="unitName" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="10" Nullable="true" Unicode="true" />
+    <Property Name="maxNorm" Type="Single" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="minNorm" Type="Single" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="note" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="255" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="offers" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="userId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="offerNum" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="10" Nullable="true" Unicode="true" />
+    <Property Name="productId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="value" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="regionId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="districtId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="city" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+    <Property Name="qualityId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="storePlaceId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="price" Type="Decimal" ConcurrencyMode="None" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="tel" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="10" Nullable="true" Unicode="true" />
+    <Property Name="createDate" Type="DateTime" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="userIdUniq" Type="Guid" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="sor" Type="Double" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="belok" Type="Double" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="vlazhnost" Type="Double" ConcurrencyMode="None" Nullable="true" />
+  </EntityType>
+  <EntityType Name="orders" Abstract="false">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="offers" Type="Boolean" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="bids" Type="Boolean" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="autoOrders" Type="Boolean" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="offersDate" Type="DateTime" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="bidsDate" Type="DateTime" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="autoOrdersDate" Type="DateTime" ConcurrencyMode="None" Nullable="true" />
+  </EntityType>
+  <EntityType Name="personalArea" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="usrId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="money" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="activated" Type="Boolean" ConcurrencyMode="None" Nullable="true" />
+  </EntityType>
+  <EntityType Name="products" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="quality" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="region" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="serviceDescr" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="60" Nullable="true" Unicode="true" />
+    <Property Name="purpose" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="services" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="userId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="serviceDescrId" Type="Int32" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="active" Type="Boolean" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="price" Type="Decimal" ConcurrencyMode="None" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="endDate" Type="DateTime" ConcurrencyMode="None" Nullable="true" />
+    <Property Name="activationTime" Type="DateTime" ConcurrencyMode="None" Nullable="true" />
+  </EntityType>
+  <EntityType Name="storePlace" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="user" Abstract="false">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" ConcurrencyMode="None" Nullable="false" />
+    <Property Name="name" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="100" Nullable="true" Unicode="true" />
+    <Property Name="password" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="30" Nullable="true" Unicode="true" />
+    <Property Name="tel" Type="String" ConcurrencyMode="None" FixedLength="false" MaxLength="10" Nullable="true" Unicode="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,50 @@
+﻿
+@using mvc2.Helpers
+@using mvc2.Models.References
+@using mvc2.Models
+ 
+@{
+
+var attrs = new Dictionary<string, object>();
+attrs.Add("class","selectpicker"); 
+attrs.Add("data-width","auto");
+
+string a="";
+string b="btnRemBook";
+int num=0;
+int savedindex=0;
+string fieldPrefix="";
+string fieldPrefix2="";
+int tempUniqueID = 0;
+string parentId=ViewBag.xxx.ToString();
+
+}
+
+@Html.Partial("UpdateRow")
+
+@{ int limit = Model.AutoNumbers.Count+ViewBag.Index+2;}
+@for(var i = 0; i <=ViewBag.Index; i++)
+    {
+	
+	b="btnRemBook"+a;
+	num++;
+	
+	tempUniqueID=-1 * new Random().Next();
+	a=tempUniqueID.ToString();
+	fieldPrefix = string.Format("{0}[{1}].","AutoNumbers",tempUniqueID);
+	
+<tr id='trBook1'>
+
+<td style="display:none"><input name="AutoNumbers.Index" type="hidden" value="@tempUniqueID" /></td>
+@Html.Hidden(fieldPrefix + "Id", tempUniqueID)
+@Html.Hidden(fieldPrefix + "TransportId", parentId)
+<td>@Html.DropDownListCustom("AutoModelId",(IEnumerable<SelectListItem>)Model.getSelectedAutoModelList(-1), attrs, @a, "AutoNumbers", "NumAutoModelId")</td>
+<td>@Html.DropDownListCustom("AutoTypeId",(IEnumerable<SelectListItem>)Model.getSelectedAutoTypeList(-1), attrs, @a, "AutoNumbers", "NumAutoTypeId")</td>
+<td><input class="form-control"  placeholder="АА5677СН" maxlength=8 id="AutoNumbers[@tempUniqueID]Title" name="AutoNumbers[@tempUniqueID].NumberText" type="text" value="" /></td>
+
+
+
+<td><button id="@b" class="btn btn-danger btn-xs" type="button" value="Удалить" onclick="if (confirm('Вы уверены что хотите полностью удалить авто?')) deleteContainer(event);" > <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+</tr>
+}
+

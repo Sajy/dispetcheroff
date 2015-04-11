@@ -1,0 +1,59 @@
+﻿@model mvc2.Models.LoginViewModel
+
+
+
+
+<h1>Вход в личный кабинет</h1>
+<hr>
+
+@User.Identity.Name
+
+
+			<div class="row">
+			<div class="col-md-4">
+			
+			<div class="panel panel-warning">
+  	<div class="panel-heading">Пожайлуста, введите Ваш имейл и пароль для входа в личный кабинет</div>
+  	<div class="panel-body">
+   
+			
+
+@using(Html.BeginForm()) {
+@Html.ValidationSummary(true)
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.UserName)
+				</div>
+				<div class="editor-field">
+					@Html.TextBoxFor(model => model.UserName, null, new {@class="form-control" })
+					@Html.ValidationMessageFor(model => model.UserName)
+				</div>
+				
+				<div class="editor-label">
+					@Html.LabelFor(model => model.Password)
+				</div>
+				<div class="editor-field">
+					@Html.PasswordFor(model => model.Password,new {@class="form-control" })
+					@Html.ValidationMessageFor(model => model.Password)
+				</div>
+				
+				<p class="text-right">
+				<br><input class="btn btn-success " type="submit" value="Войти" />
+				</p>
+				<p>Если вы не зарегистрированы перейдите на страницу @Html.ActionLink("Регистрация","Registration", "Account")</p>
+				
+
+
+
+}
+
+  	</div>
+	</div>
+			
+				</div></div>
+	<div class="row">
+	<hr>
+						@Html.Partial("Banner1")
+				
+					</div>
+				

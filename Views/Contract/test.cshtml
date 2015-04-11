@@ -1,0 +1,31 @@
+﻿@model mvc2.Models.Contract
+
+<!DOCTYPE html>
+<html>
+	<head runat="server">
+		<title>test</title>
+	</head>
+	<body>
+		@using (Html.BeginForm()) {
+			@Html.ValidationSummary(true)
+			<fieldset>
+				<legend>Contract</legend>
+				
+				<div class="editor-label">
+					@Html.LabelFor(model => model.Text)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.Text)
+					@Html.ValidationMessageFor(model => model.Text)
+				</div>
+				
+				<p>
+					<input type="submit" value="Create"/>
+				</p>
+			</fieldset>
+		}
+		<div>
+			@Html.ActionLink("Back", "Index")
+		</div>
+	</body>
+</html>

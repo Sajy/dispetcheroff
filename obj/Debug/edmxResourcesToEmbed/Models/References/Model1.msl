@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dispetcheroffStoreContainer" CdmEntityContainer="dispetcheroffObjectContext">
+    <EntitySetMapping Name="activeContracts">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.activeContracts)">
+        <MappingFragment StoreEntitySet="activeContracts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="text" ColumnName="text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="autoMake">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.autoMake)">
+        <MappingFragment StoreEntitySet="autoMake">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="autoOffers">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.autoOffers)">
+        <MappingFragment StoreEntitySet="autoOffers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="offerNum" ColumnName="offerNum" />
+          <ScalarProperty Name="autoMakeId" ColumnName="autoMakeId" />
+          <ScalarProperty Name="autoTypeId" ColumnName="autoTypeId" />
+          <ScalarProperty Name="tare" ColumnName="tare" />
+          <ScalarProperty Name="cargo" ColumnName="cargo" />
+          <ScalarProperty Name="autoNumber" ColumnName="autoNumber" />
+          <ScalarProperty Name="regionOfNumber" ColumnName="regionOfNumber" />
+          <ScalarProperty Name="bortHeight" ColumnName="bortHeight" />
+          <ScalarProperty Name="addCargoName" ColumnName="addCargoName" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="userIdUniq" ColumnName="userIdUniq" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="autoType">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.autoType)">
+        <MappingFragment StoreEntitySet="autoType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bids">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.bids)">
+        <MappingFragment StoreEntitySet="bids">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="codeNum" ColumnName="codeNum" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="regionId" ColumnName="regionId" />
+          <ScalarProperty Name="districtId" ColumnName="districtId" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="qualityId" ColumnName="qualityId" />
+          <ScalarProperty Name="storePlaceId" ColumnName="storePlaceId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="minLot" ColumnName="minLot" />
+          <ScalarProperty Name="weighouse" ColumnName="weighouse" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="autoTypeId" ColumnName="autoTypeId" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="userIdUniq" ColumnName="userIdUniq" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="sor" ColumnName="sor" />
+          <ScalarProperty Name="belok" ColumnName="belok" />
+          <ScalarProperty Name="vlazhnost" ColumnName="vlazhnost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="district">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.district)">
+        <MappingFragment StoreEntitySet="district">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mesures">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.mesures)">
+        <MappingFragment StoreEntitySet="mesures">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="norma" ColumnName="norma" />
+          <ScalarProperty Name="fact" ColumnName="fact" />
+          <ScalarProperty Name="unitName" ColumnName="unitName" />
+          <ScalarProperty Name="maxNorm" ColumnName="maxNorm" />
+          <ScalarProperty Name="minNorm" ColumnName="minNorm" />
+          <ScalarProperty Name="note" ColumnName="note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="offers">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.offers)">
+        <MappingFragment StoreEntitySet="offers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="offerNum" ColumnName="offerNum" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="regionId" ColumnName="regionId" />
+          <ScalarProperty Name="districtId" ColumnName="districtId" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="qualityId" ColumnName="qualityId" />
+          <ScalarProperty Name="storePlaceId" ColumnName="storePlaceId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="userIdUniq" ColumnName="userIdUniq" />
+          <ScalarProperty Name="sor" ColumnName="sor" />
+          <ScalarProperty Name="belok" ColumnName="belok" />
+          <ScalarProperty Name="vlazhnost" ColumnName="vlazhnost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.orders)">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="offers" ColumnName="offers" />
+          <ScalarProperty Name="bids" ColumnName="bids" />
+          <ScalarProperty Name="autoOrders" ColumnName="autoOrders" />
+          <ScalarProperty Name="offersDate" ColumnName="offersDate" />
+          <ScalarProperty Name="bidsDate" ColumnName="bidsDate" />
+          <ScalarProperty Name="autoOrdersDate" ColumnName="autoOrdersDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personalArea">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.personalArea)">
+        <MappingFragment StoreEntitySet="personalArea">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="usrId" ColumnName="usrId" />
+          <ScalarProperty Name="money" ColumnName="money" />
+          <ScalarProperty Name="activated" ColumnName="activated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.products)">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quality">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.quality)">
+        <MappingFragment StoreEntitySet="quality">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="region">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.region)">
+        <MappingFragment StoreEntitySet="region">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="serviceDescr">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.serviceDescr)">
+        <MappingFragment StoreEntitySet="serviceDescr">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="purpose" ColumnName="purpose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="services">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.services)">
+        <MappingFragment StoreEntitySet="services">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="serviceDescrId" ColumnName="serviceDescrId" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="activationTime" ColumnName="activationTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="storePlace">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.storePlace)">
+        <MappingFragment StoreEntitySet="storePlace">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="IsTypeOf(mvc2.user)">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

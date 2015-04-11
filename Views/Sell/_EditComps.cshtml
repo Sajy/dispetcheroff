@@ -1,0 +1,183 @@
+﻿@model mvc2.Models.Sell
+
+<script>
+$(document).ready(function () {
+	$('#Date').datepicker({
+		language: "ru", autoclose: true
+	});
+	$("#Tel").mask("(999) 999-99-99");
+	$("#Date").mask("99.99.9999");
+	
+});
+</script>
+
+@{
+    var attrs = new Dictionary<string, object>();
+    attrs.Add("class","selectpicker"); 
+    attrs.Add("data-width","100%");
+}
+ 
+
+		@using (Html.BeginForm()) {
+			@Html.ValidationSummary(true)
+			<fieldset>
+				<legend><h2>@ViewBag.Title</h2></legend>
+				
+				<div id="mantra">
+				<div  class="row">
+					<div class="col-md-4">
+						<div class="panel panel-default">
+  							<div class="panel-body">
+  								
+    							<div class="editor-label">
+									@Html.LabelFor(model => model.District.DepartmentId)
+								</div>
+								
+								<div class="editor-field"  >
+									@Html.ValidationMessageFor(model => model.District.DepartmentId)
+									@Html.DropDownList("District.DepartmentId",(IEnumerable<SelectListItem>)ViewBag.DepartmentIdLb,attrs)
+									
+								</div>
+				
+				
+								<div class="editor-label">
+									@Html.LabelFor(model => model.DistrictId)
+								</div>
+								<div class="editor-field">
+									@Html.ValidationMessageFor(model => model.DistrictId)
+									@Html.DropDownList("DistrictId",(IEnumerable<SelectListItem>)ViewBag.DistrictIdLb, attrs)
+									
+								</div>
+								
+								<div class="editor-label">
+									@Html.LabelFor(model => model.HoldAreaId)
+								</div>
+								<div class="editor-field">
+									@Html.ValidationMessageFor(model => model.HoldAreaId)
+									@Html.DropDownList("HoldAreaId",(IEnumerable<SelectListItem>)ViewBag.HoldAreaIdLb, attrs)
+									
+								</div>
+								<div class="editor-label">
+									@Html.LabelFor(model => model.City)
+								</div>
+								<div class="editor-field">
+									@Html.ValidationMessageFor(model => model.City)
+									@Html.TextBoxFor(model => model.City, null, new { @class="form-control", maxlength = 30, placeholder ="Ваш город (необязательно)"  })
+								
+								</div>
+								
+								<div class="editor-label">
+									@Html.LabelFor(model => model.Tel)
+								</div>
+								<div class="editor-field">
+									@Html.ValidationMessageFor(model => model.Tel)
+									@Html.TextBoxFor(model => model.Tel, null, new {@class="form-control",  placeholder ="(011) 111-11-11"})
+									
+								</div>
+								
+  							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-default">
+  							<div class="panel-body">
+    								
+								<div class="editor-label">
+									@Html.LabelFor(model => model.ProductId)
+								</div>
+								<div class="editor-field">
+									@Html.ValidationMessageFor(model => model.ProductId)
+									@Html.DropDownList("ProductId",(IEnumerable<SelectListItem>)ViewBag.ProductIdLb, attrs)
+								
+								</div>
+								
+								<div class="editor-label">
+									@Html.LabelFor(model => model.ProductTypeId)
+								</div>
+								<div class="editor-field">
+									@Html.ValidationMessageFor(model => model.ProductTypeId)
+									@Html.DropDownList("ProductTypeId",(IEnumerable<SelectListItem>)ViewBag.ProductTypeIdLb, attrs)
+									
+									
+								</div>
+								<div class="editor-label">
+									@Html.LabelFor(model => model.Amount)
+								</div>
+								<div class="editor-field">
+									@Html.ValidationMessageFor(model => model.Amount)
+									@Html.TextBoxFor(model => model.Amount,null, new { @class="form-control", placeholder ="Введите количество"})
+									
+								</div>
+								
+								<div class="editor-label">
+									@Html.LabelFor(model => model.QualityId)
+								</div>
+								<div class="editor-field">
+									@Html.DropDownList("QualityId",(IEnumerable<SelectListItem>)ViewBag.QualityIdLb, attrs)
+									@Html.ValidationMessageFor(model => model.QualityId)
+								</div>
+								
+								<div class="editor-label">
+									@Html.LabelFor(model => model.Price)
+								</div>
+								<div class="editor-field ">
+									@Html.ValidationMessageFor(model => model.Price)
+									@Html.TextBoxFor(model => model.Price,null,new { @class="form-control",  placeholder ="Введите цену" })
+									
+								</div>
+				
+				
+  							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-default">
+  							<div class="panel-body">
+				    			<div class="editor-label">
+									@Html.LabelFor(model => model.Date)
+								</div>
+								<div class="editor-field">
+									@Html.ValidationMessageFor(model => model.Date)
+									@Html.TextBoxFor(model => model.Date,"{0:MM.dd.yyyy}", new { @class="form-control",maxlength=10 })
+									
+								</div>
+  							</div>
+						</div>
+					</div>
+				
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+	  						<div class="panel-body">
+	  							<div class="editor-label">
+									<input id="cb1" type="checkbox" class="large"/>
+									@Html.Label("Отметьте если необходимо дать только текстовое обявление")
+								</div>
+								<textarea class="form-control" name="Text1" rows="6" ></textarea>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+			
+				
+				
+			
+			
+			
+				
+				
+			
+					
+					@Html.ActionLink("Отмена","", "Sell", null,new{@class="btn btn-default " })
+					
+					
+					<input class="btn btn-success " type="submit" value="@ViewBag.ActionButtonText"/>
+				
+			</fieldset>
+		}
+	
+
+

@@ -1,0 +1,39 @@
+﻿@model mvc2.Models.LoginViewModel
+
+<!DOCTYPE html>
+<html>
+	<head runat="server">
+		<title>test</title>
+	</head>
+	<body>
+		@using (Html.BeginForm()) {
+			@Html.ValidationSummary(true)
+			<fieldset>
+				<legend>LoginViewModel</legend>
+				
+				<div class="editor-label">
+					@Html.LabelFor(model => model.UserName)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.UserName)
+					@Html.ValidationMessageFor(model => model.UserName)
+				</div>
+				
+				<div class="editor-label">
+					@Html.LabelFor(model => model.Password)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.Password)
+					@Html.ValidationMessageFor(model => model.Password)
+				</div>
+				
+				<p>
+					<input type="submit" value="Save"/>
+				</p>
+			</fieldset>
+		}
+		<div>
+			@Html.ActionLink("Back", "Index")
+		</div>
+	</body>
+</html>

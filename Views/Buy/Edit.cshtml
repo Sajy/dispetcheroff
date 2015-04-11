@@ -1,0 +1,39 @@
+﻿@model mvc2.Models.Buy
+<script>
+   $(document).ready(function () {
+    	 updateDistrict();
+    
+   		function updateDistrict(){
+   		
+   			 $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetDistrictsByDepId")', 
+                dataType: 'json',
+                data: { id: $("#District_DepartmentId").val() }, 
+                success: function (states) {
+                	//alert(@Model.DistrictId);
+                   	var ddd=$("#DistrictId");
+                 	ddd.empty();
+                    $.each(states, function (i, state) {
+                    var a='';
+                    if (state.Value==@Model.DistrictId) a='selected="selected"'; 
+                    ddd.append('<option '+a+' value="' + state.Value + '">' +  
+                         state.Text + '</option>');     
+                    });
+                    ddd.selectpicker('refresh');
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve states.' + ex);
+                }
+            });
+   		return true;
+   		}
+        $("#District_DepartmentId").change(function () {
+        	
+          updateDistrict();
+           
+            return false;
+        })
+    });
+    </script>
+@Html.Partial("_EditComps")

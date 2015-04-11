@@ -1,0 +1,157 @@
+﻿
+
+
+@using mvc2.Models.Grids
+
+@model IEnumerable<TransportGridModel> 
+
+
+<script type="text/javascript">
+ 		
+@if (TempData["UserMessage"] != null) {
+	<text>
+	$(document).ready(function () {
+		$('#alert1').modal();
+	});
+	</text>
+}
+
+        $(function () {
+        
+
+		
+        
+         
+            $('body').on('click', '.modal-link', function (e) {
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container');
+                $(this).attr('data-toggle', 'modal');
+             
+                
+            });
+            // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+            $('body').on('click', '.modal-close-btn', function () {
+                $('#modal-container').modal('hide');
+            });
+            //clear modal cache, so that new content can be loaded
+            $('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+        });
+        
+        
+    </script>
+
+
+
+
+
+@Html.Partial("InfoDialog")
+
+
+<!--Диалог детали сообщение что все впорядке-->
+<div style="padding-top: 15%;" id="modal-container" class="modal fade" 
+tabindex="-1" role="dialog">
+   <div class="modal-content">
+   </div>
+ </div>
+
+<div class="row">
+	<div  class="col-sm-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Для тех кто ищет транспорт</h3>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-sm-8">  <h3>Поиск транспорта через смс рассылку</h3></div>
+								<div class="col-sm-4 text-center"> <h3 ><img width="85" height="50" class="img-rounded " src="~/Images/trans1.gif" /></h3></div>
+								</div>
+								<br />
+								
+								<div class="row">
+									<div class="col-sm-7">
+										<a id="Button2" class="btn btn-success btn-lg" onclick="alert('Кнопка поиск транспорта будет работать позже полсе введнеия регистрации');" href="#">
+										Найти транспорт <br /><span class="badge">(беспатно)</span> 
+										</a>
+									</div>
+									<div class="col-sm-5">
+										Среди <span id="Label1" style="color:#006600;font-size:X-Large;font-weight:bold;">1440</span> машин в нашей базе
+										<small>
+									</div>
+								
+								</div>
+								
+								
+								
+								<h3>СМС Рассылка позволит Вам быстро найти оптимального перевозчика по выгодной цене в кратчайшие сроки</small></h3>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div  class="col-sm-6">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Для водителей</h3>
+							</div>
+							<div class="panel-body">
+							<div class="row">
+							<div class="col-md-12">
+							<div class="row">
+							<div class="col-sm-8">  <h3>Предложить транспорт для сотруднчиества</h3></div>
+							<div class="col-sm-4  text-center"> <h3><img width="85" height="50" class="img-rounded" src="~/Images/thumb2.gif" /></h3></div>
+						</div>
+						<br />
+						<a id="Button3" class="btn btn-warning btn-lg" href="@Url.Action("Create", "Transport")">Предложить транспорт <br /><span class="badge"> (бесплатно)</span></a>
+						<h3><small>
+						Регистрация водителей для получения заказов через смс для перевозки c/х продукции</small></h3>
+					</div>
+				</div>
+			</div> 
+		</div>
+	</div>
+</div>
+
+<h1>Объявления о траснпорте</h1>
+<table class="table table-hover">
+<th>№</th>
+
+
+<th class="text-center">@Html.DisplayNameFor(model => model.AutosQuantity).ToString()</th>
+
+<th></th>
+<th>@Html.DisplayNameFor(model => model.Tel).ToString()</th>
+<th>@Html.DisplayNameFor(model => model.Date).ToString()</th>
+<th></th>
+<th></th>
+@foreach (TransportGridModel d in Model)
+{
+<tr>
+<td>@Html.DisplayFor(modelItem => d.Id)</td>
+<td class="text-center">@Html.DisplayFor(modelItem => d.AutosQuantity)
+
+
+<a title="Подробнее..." class="btn btn-default btn-xs modal-link" href="@Url.Action("Details", "Transport", new {id=d.Id})" role="button"><span class="glyphicon glyphicon-option-horizontal"></span></a>
+
+
+<td></td>
+<td>@Html.DisplayFor(modelItem => d.Tel)</td>
+<td>@Html.DisplayFor(modelItem => d.Date)</td>
+
+<td>
+<a title="Удалить объявление" class="btn btn-danger btn-xs" onclick="return confirm('Вы уверены что хотите полностью удалить объявление?');" href="@Url.Action("Delete", "Transport", new {id=d.Id})" role="button"><span class="glyphicon glyphicon-remove"></span></a>
+</td>
+<td>
+<a title="Редактировать объявление" class="btn btn-primary btn-xs" href="@Url.Action("Edit", "Transport", new {id=d.Id})" role="button"><span class="glyphicon glyphicon-edit"></span></a>
+</td>
+
+</tr>
+}
+</table>
+
